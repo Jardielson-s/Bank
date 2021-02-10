@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Client{
 
     private  String name;
@@ -45,13 +47,14 @@ public class Client{
         this.cpf = cpf;
     }
 
-    public Bank[] getCount() {
-        return count;
+    public ArrayList<Bank> getCount() {
+        ArrayList<Bank> banks = new ArrayList<>();
+        for(int i = 0; i < count.length; i++){
+            banks.add(count[i]);
+        }
+        return banks;
     }
 
-    public void setCount(Bank[] count) {
-        this.count = count;
-    }
 
 
 }

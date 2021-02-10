@@ -11,8 +11,8 @@ public class ClientTest {
         Client client = new Client("Jardielson silva ferreiar","000.111.222-33","0000 000 000000-1");
 
         client.insertNewAccount("0000 444 0127-7");
-        Assert.assertEquals(client.getCount()[0].getNumber_count(),"0000 000 000000-1");
-        Assert.assertEquals(client.getCount()[1].getNumber_count(),"0000 444 0127-7");
+        Assert.assertEquals(client.getCount().get(0).getNumber_count(),"0000 000 000000-1");
+        Assert.assertEquals(client.getCount().get(1).getNumber_count(),"0000 444 0127-7");
 
         try {
             client.insertNewAccount("0000 444 0127-7");
