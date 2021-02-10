@@ -1,29 +1,33 @@
 public class Client{
 
-    private final String name;
-    private final String cpf;
+    private  String name;
+    private  String cpf;
     Bank []count = new Bank[5];
     int countig = 0;
 
-    public String verify(String cont) throws ExceptionContExist {
+    private String verify(String cont) throws ExceptionContExist {
         for(int i = 0; i < countig; i++){
-            System.out.println(count[1].getClient());
             if(count[i].getNumber_count().equals(cont)){
+                System.out.println(cont);
                 throw new ExceptionContExist(cont);
             }
         }
         return null;
     }
-    public void insert(String number_account){
-            count[countig] = new Bank(number_account);
+
+    public void insertNewAccount(String number_account) throws ExceptionContExist {
+            verify(number_account);
+            count[countig] = new Bank(number_account, getName(), getCpf());
             countig++;
     }
 
-    public Client(String name, String cpf,String number_count){
+    public Client(String name, String cpf,String number_count) throws ExceptionContExist {
           this.name =  name;
           this.cpf = cpf;
-          insert(number_count);
+          insertNewAccount(number_count);
     }
+
+    public Client(){}
 
     public String getCpf() {
         return cpf;
@@ -33,6 +37,14 @@ public class Client{
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
     public Bank[] getCount() {
         return count;
     }
@@ -40,7 +52,6 @@ public class Client{
     public void setCount(Bank[] count) {
         this.count = count;
     }
-
 
 
 }
