@@ -3,13 +3,12 @@ public class Bank {
     private String number_count;
     Client client;
 
-    public Bank(String number_count,String name,String cpf){
-          this.number_count = number_count;
-          client = new Client(name,cpf,getNumber_count());
-    }
-
     public Bank(String number_count){
         this.number_count = number_count;
+    }
+
+    public void insertClient(Client client1){
+        client = new Client(client1.getName(), client1.getCpf(), client1.getCount().toString());
     }
 
     public String getNumber_count() {
@@ -20,4 +19,7 @@ public class Bank {
         return client;
     }
 
+    public void setNumber_count(String number_count) {
+        this.number_count = number_count;
+    }
 }

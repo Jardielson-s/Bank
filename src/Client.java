@@ -3,28 +3,20 @@ public class Client{
     private final String name;
     private final String cpf;
     Bank []count = new Bank[5];
+    int countig = 0;
 
-
-    public int verify(){
-        for(int i = 0; i < count.length; i++){
-            if(count[i] != null){
-                return i;
-            }
-        }
-        return 0;
-    }
     public String verify(String cont) throws ExceptionContExist {
-        for(int i = 0; i < count.length; i++){
-            if(count[i].equals(cont)){
-                System.out.println(cont);
+        for(int i = 0; i < countig; i++){
+            System.out.println(count[1].getClient());
+            if(count[i].getNumber_count().equals(cont)){
                 throw new ExceptionContExist(cont);
             }
         }
-        System.out.println(cont);
         return null;
     }
     public void insert(String number_account){
-            count[verify()] = new Bank(number_account);
+            count[countig] = new Bank(number_account);
+            countig++;
     }
 
     public Client(String name, String cpf,String number_count){
@@ -48,6 +40,7 @@ public class Client{
     public void setCount(Bank[] count) {
         this.count = count;
     }
+
 
 
 }
