@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public class ExceptionCpfExist {
+public class ExceptionCpfExist extends Exception{
+
+    public ExceptionCpfExist(String cpf){
+        super(cpf + " this number of cpf already exist");
+    }
 }
