@@ -45,7 +45,30 @@ public class ControlPanel {
         return banks;
     }
 
-   public void transferValue(){
-        
+   public void transferValue(String numberAccountSend, String nameSend, String numberAccountReceive, String nameReceive, double value) throws ExceptionInsufficientFunds {
+       Client client1 = sarch(numberAccountReceive,nameReceive);
+       Client client = sarch(numberAccountSend,nameSend);
+
+       boolean balanceOfAccountIsEnough = verifyBalance(nameSend,value, numberAccountSend);
+       if(client != null  && balanceOfAccountIsEnough){
+          client.withdrawMoney(value);
+          //client1.depositMoney(value);
+       }
+   }
+
+   private Client sarch(String name,String numberAccount){
+       //System.out.println(arrayListClient.get(1).getCount().get(0).getNumber_count());
+       for(Client client : arrayListClient){
+
+       }
+       return null;
+   }
+
+   private boolean verifyBalance(String name, double balance, String numberAccount) throws ExceptionInsufficientFunds {
+        Client client = sarch(numberAccount, name);
+        if(client.getSaldo() >= balance){
+            return true;
+        }
+        throw new ExceptionInsufficientFunds(balance);
    }
 }
